@@ -1,0 +1,205 @@
+{
+  "info": {
+    "_postman_id": "c6ed90d0-8ab7-452b-b7a7-e561148ee626",
+    "name": "PruebaTecnica",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52280936",
+    "_collection_link": "https://go.postman.co/collection/52280936-c6ed90d0-8ab7-452b-b7a7-e561148ee626?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "localhost:8080/api/productos",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Naranjas\",\r\n    \"categoria\": \"Frutas y verduras\",\r\n    \"precio\": 1400.0,\r\n    \"cantidad\": 10\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/api/productos",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "productos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8080/api/productos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/api/productos",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "productos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8080/api/sucursales",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Sucursal del Campo\",\r\n    \"direccion\": \"Campo Bello\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/api/sucursales",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "sucursales"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8080/api/sucursales",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/api/sucursales",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "sucursales"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8080/api/ventas",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"fecha\": \"2026-11-02\",\r\n    \"estado\": \"Registrada\",\r\n    \"idSucursal\": 1,\r\n    \"detalle\": [\r\n        {\r\n            \"id\": 1,\r\n            \"nombreProducto\": \"Doritos\",\r\n            \"cantidadProducto\": 5,\r\n            \"precioUnitario\": 100.0,\r\n            \"subTotal\": 500.0\r\n        },\r\n        {\r\n        \"id\": 2,\r\n        \"nombreProducto\": \"Desodorante\",\r\n        \"cantidadProducto\": 20,\r\n        \"precioUnitario\": 2990.0,\r\n        \"subTotal\": 59800.0\r\n        }],\r\n    \"total\": 60300.0\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/api/ventas",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ventas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8080/api/ventas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/api/ventas",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ventas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8080/api/productos/1",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"fecha\": \"2026-11-02\",\r\n    \"estado\": \"Registrada\",\r\n    \"idSucursal\": 1,\r\n    \"detalle\": [\r\n        {\r\n            \"id\": 1,\r\n            \"nombreProducto\": \"Doritos\",\r\n            \"cantidadProducto\": 5,\r\n            \"precioUnitario\": 100.0,\r\n            \"subTotal\": 500.0\r\n        },\r\n        {\r\n        \"id\": 2,\r\n        \"nombreProducto\": \"Desodorante\",\r\n        \"cantidadProducto\": 20,\r\n        \"precioUnitario\": 2990.0,\r\n        \"subTotal\": 59800.0\r\n        }],\r\n    \"total\": 60300.0\r\n}"
+        },
+        "url": {
+          "raw": "localhost:8080/api/productos/1",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "productos",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8080/api/productos/2",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Prueba\",\r\n    \"categoria\": \"Productos\",\r\n    \"precio\": 2990.0,\r\n    \"cantidad\": 2654\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/api/productos/2",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "productos",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
