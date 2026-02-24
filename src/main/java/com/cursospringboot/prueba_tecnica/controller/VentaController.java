@@ -2,6 +2,7 @@ package com.cursospringboot.prueba_tecnica.controller;
 
 import com.cursospringboot.prueba_tecnica.dto.VentaDTO;
 import com.cursospringboot.prueba_tecnica.service.IVentaService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,11 +11,11 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/ventas")
 public class VentaController {
 
-    @Autowired
-    private IVentaService ventaService;
+    private final IVentaService ventaService;
 
     @GetMapping
     public ResponseEntity<List<VentaDTO>> getVentas() {

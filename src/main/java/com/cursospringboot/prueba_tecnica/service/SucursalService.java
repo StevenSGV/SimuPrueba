@@ -5,16 +5,17 @@ import com.cursospringboot.prueba_tecnica.exception.NotFoundException;
 import com.cursospringboot.prueba_tecnica.mapper.Mapper;
 import com.cursospringboot.prueba_tecnica.model.Sucursal;
 import com.cursospringboot.prueba_tecnica.repository.ISucursalRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class SucursalService implements ISucursalService {
 
-    @Autowired
-    private ISucursalRepository sucursalRepository;
+    private final ISucursalRepository sucursalRepository;
 
     @Override
     public List<SucursalDTO> getSucursales() {

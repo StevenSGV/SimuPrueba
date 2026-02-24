@@ -5,16 +5,17 @@ import com.cursospringboot.prueba_tecnica.exception.NotFoundException;
 import com.cursospringboot.prueba_tecnica.mapper.Mapper;
 import com.cursospringboot.prueba_tecnica.model.Producto;
 import com.cursospringboot.prueba_tecnica.repository.IProductoRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ProductoService implements IProductoService{
 
-    @Autowired
-    private IProductoRepository productoRepository;
+    private final IProductoRepository productoRepository;
 
     @Override
     public List<ProductoDTO> getProductos() {

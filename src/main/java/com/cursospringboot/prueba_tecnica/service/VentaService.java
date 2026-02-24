@@ -11,23 +11,21 @@ import com.cursospringboot.prueba_tecnica.model.Venta;
 import com.cursospringboot.prueba_tecnica.repository.IProductoRepository;
 import com.cursospringboot.prueba_tecnica.repository.ISucursalRepository;
 import com.cursospringboot.prueba_tecnica.repository.IVentaRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class VentaService implements IVentaService {
 
-    @Autowired
-    private IVentaRepository ventaRepository;
-
-    @Autowired
-    private IProductoRepository productoRepository;
-
-    @Autowired
-    private ISucursalRepository sucursalRepository;
+    private final IVentaRepository ventaRepository;
+    private final IProductoRepository productoRepository;
+    private final ISucursalRepository sucursalRepository;
 
     @Override
     public List<VentaDTO> getVentas() {
@@ -44,6 +42,7 @@ public class VentaService implements IVentaService {
     }
 
     @Override
+    @Transactional
     public VentaDTO saveVenta(VentaDTO ventaDTO) {
         if (ventaDTO == null) throw new RuntimeException("La venta no puede ser nula.");
         if (ventaDTO.getIdSucursal() == null) throw new RuntimeException("Debe indicar la sucursal.");
@@ -87,6 +86,7 @@ public class VentaService implements IVentaService {
     }
 
     @Override
+    @Transactional
     public VentaDTO editVenta(Long id, VentaDTO ventaDTO) {
         Venta venta = ventaRepository.findById(id).orElse(null);
         if (venta == null) throw new RuntimeException("Venta no encontrada.");

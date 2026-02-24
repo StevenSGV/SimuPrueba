@@ -1,5 +1,6 @@
 package com.cursospringboot.prueba_tecnica.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Getter @Setter
@@ -9,6 +10,8 @@ import lombok.*;
 public class SucursalDTO {
 
     private Long id;
+
+    @NotBlank(message = "El nombre de la sucursal es obligatorio")
     private String nombre;
     private String direccion;
 }

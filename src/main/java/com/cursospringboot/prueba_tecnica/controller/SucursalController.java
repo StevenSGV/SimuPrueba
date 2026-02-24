@@ -2,6 +2,7 @@ package com.cursospringboot.prueba_tecnica.controller;
 
 import com.cursospringboot.prueba_tecnica.dto.SucursalDTO;
 import com.cursospringboot.prueba_tecnica.service.ISucursalService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,11 +11,11 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/sucursales")
 public class SucursalController {
 
-    @Autowired
-    private ISucursalService sucursalService;
+    private final ISucursalService sucursalService;
 
     @GetMapping
     public ResponseEntity<List<SucursalDTO>> getSucursales() {
