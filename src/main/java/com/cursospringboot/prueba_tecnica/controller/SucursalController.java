@@ -2,6 +2,7 @@ package com.cursospringboot.prueba_tecnica.controller;
 
 import com.cursospringboot.prueba_tecnica.dto.SucursalDTO;
 import com.cursospringboot.prueba_tecnica.service.ISucursalService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +24,7 @@ public class SucursalController {
     }
 
     @PostMapping
-    public ResponseEntity<SucursalDTO> createSucursal(@RequestBody SucursalDTO sucursalDTO) {
+    public ResponseEntity<SucursalDTO> createSucursal(@Valid @RequestBody SucursalDTO sucursalDTO) {
         SucursalDTO sucursalCreada = sucursalService.saveSucursal(sucursalDTO);
 
         return ResponseEntity.created(URI.create("/api/sucursales" + sucursalCreada.getId())).body(sucursalCreada);
@@ -31,7 +32,7 @@ public class SucursalController {
 
     @PutMapping("/{id}")
     public ResponseEntity<SucursalDTO> updateSucursal(@PathVariable Long id,
-                                                      @RequestBody SucursalDTO sucursalDTO) {
+                                                      @Valid @RequestBody SucursalDTO sucursalDTO) {
         return ResponseEntity.ok(sucursalService.editSucursal(id, sucursalDTO));
     }
 

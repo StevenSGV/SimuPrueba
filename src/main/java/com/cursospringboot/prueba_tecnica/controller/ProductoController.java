@@ -2,6 +2,7 @@ package com.cursospringboot.prueba_tecnica.controller;
 
 import com.cursospringboot.prueba_tecnica.dto.ProductoDTO;
 import com.cursospringboot.prueba_tecnica.service.IProductoService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,14 +24,14 @@ public class ProductoController {
     }
 
     @PostMapping
-    public ResponseEntity<ProductoDTO> createProducto(@RequestBody ProductoDTO productoDTO) {
+    public ResponseEntity<ProductoDTO> createProducto(@Valid @RequestBody ProductoDTO productoDTO) {
         ProductoDTO productoCreado = productoService.saveProducto(productoDTO);
         return ResponseEntity.created(URI.create("/api/productos" + productoCreado.getId())).body(productoCreado);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<ProductoDTO> updateProducto(@PathVariable Long id,
-                                                      @RequestBody ProductoDTO productoDTO) {
+                                                      @Valid @RequestBody ProductoDTO productoDTO) {
         return ResponseEntity.ok(productoService.editProducto(id, productoDTO));
     }
 
